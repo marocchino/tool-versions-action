@@ -4,16 +4,16 @@ on:
   push:
     branches:
       - master
-      - 'releases/*'
+      - "releases/*"
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - run: npm ci
-    - run: npm test
-    - uses: ./
-      with:
-        milliseconds: 1000
+      - run: npm ci
+      - run: npm test
+      - uses: ./
+        with:
+          path: ".tool-versions"
