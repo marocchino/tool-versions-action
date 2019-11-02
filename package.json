@@ -1,12 +1,12 @@
 {
-  "name": "javascript-action",
+  "name": "tool-versions-action",
   "version": "1.0.0",
   "description": "JavaScript Action Template",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js",
+    "lint": "eslint index.js fetch.js",
     "package": "ncc build index.js -o dist",
-    "test": "eslint index.js && jest"
+    "test": "jest"
   },
   "repository": {
     "type": "git",

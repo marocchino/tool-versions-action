@@ -1,13 +1,19 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: "Tool Versions"
+description: "Output version numbers with .tool-versions file."
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  path:
+    description: "path of .tool-versions file"
     required: true
-    default: '1000'
+    default: ".tool-version"
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  nodejs:
+    description: "version of nodejs"
+  ruby:
+    description: "version of ruby"
+  elixir:
+    description: "version of elixir"
+  erlang:
+    description: "version of erlang"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"

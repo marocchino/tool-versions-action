@@ -54,27 +54,26 @@ module.exports = require("os");
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470);
-const wait = __webpack_require__(949);
-
+const fetch = __webpack_require__(472);
 
 // most @actions toolkit packages have async methods
 async function run() {
-  try { 
-    const ms = core.getInput('milliseconds');
-    console.log(`Waiting ${ms} milliseconds ...`)
+  try {
+    const path = core.getInput("path");
+    core.debug(`Load file at ${path}`);
 
-    core.debug((new Date()).toTimeString())
-    wait(parseInt(ms));
-    core.debug((new Date()).toTimeString())
+    const results = fetch(path);
 
-    core.setOutput('time', new Date().toTimeString());
-  } 
-  catch (error) {
+    for (let [key, value] of Object.entries(results)) {
+      core.debug(`set output: ${key}: ${value}`);
+      core.setOutput(key, value);
+    }
+  } catch (error) {
     core.setFailed(error.message);
   }
 }
 
-run()
+run();
 
 
 /***/ }),
@@ -336,6 +335,29 @@ exports.group = group;
 
 /***/ }),
 
+/***/ 472:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const fs = __webpack_require__(747);
+const fetch = function(path) {
+  return fs
+    .readFileSync(path)
+    .toString()
+    .split("\n")
+    .reduce((acc, current) => {
+      const [key, value] = current.trim().split(/\s+/);
+      if (value) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {});
+};
+
+module.exports = fetch;
+
+
+/***/ }),
+
 /***/ 622:
 /***/ (function(module) {
 
@@ -343,21 +365,10 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 949:
+/***/ 747:
 /***/ (function(module) {
 
-let wait = function(milliseconds) {
-  return new Promise((resolve, reject) => {
-    if (typeof(milliseconds) !== 'number') { 
-      throw new Error('milleseconds not a number'); 
-    }
-
-    setTimeout(() => resolve("done!"), milliseconds)
-  });
-}
-
-module.exports = wait;
-
+module.exports = require("fs");
 
 /***/ })
 
