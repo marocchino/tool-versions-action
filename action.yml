@@ -4,7 +4,7 @@ inputs:
   path:
     description: "path of .tool-versions file"
     required: true
-    default: ".tool-version"
+    default: ".tool-versions"
 outputs:
   nodejs:
     description: "version of nodejs"
