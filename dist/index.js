@@ -347,7 +347,15 @@ const fetch = function(path) {
     .reduce((acc, current) => {
       const [key, value] = current.trim().split(/\s+/);
       if (value) {
-        acc[key] = value;
+        switch (key) {
+          case "elixir":
+            acc[key] = value.replace(/-otp.+/, "");
+            break;
+
+          default:
+            acc[key] = value;
+            break;
+        }
       }
       return acc;
     }, {});
