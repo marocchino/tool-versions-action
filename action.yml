@@ -1,19 +1,21 @@
-name: "Tool Versions"
-description: "Output version numbers with .tool-versions file."
+# @format
+
+name: 'Tool Versions'
+description: 'Output version numbers with .tool-versions file.'
 inputs:
   path:
-    description: "path of .tool-versions file"
+    description: 'path of .tool-versions file'
     required: true
-    default: ".tool-versions"
+    default: '.tool-versions'
 outputs:
   nodejs:
-    description: "version of nodejs"
+    description: 'version of nodejs'
   ruby:
-    description: "version of ruby"
+    description: 'version of ruby'
   elixir:
-    description: "version of elixir"
+    description: 'version of elixir'
   erlang:
-    description: "version of erlang"
+    description: 'version of erlang'
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: 'node16'
+  main: 'dist/index.js'
