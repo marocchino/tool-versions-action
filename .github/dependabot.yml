@@ -5,9 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
       interval: "daily"
-      time: "05:00"
-      timezone: "Asia/Tokyo"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
