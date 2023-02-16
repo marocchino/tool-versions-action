@@ -29,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Read .tool-versions
         uses: marocchino/tool-versions-action@v1
         id: versions
       - name: Use Node.js ${{ steps.versions.outputs.nodejs}}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ steps.versions.outputs.nodejs}}
 ```
