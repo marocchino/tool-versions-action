@@ -17,5 +17,5 @@ outputs:
   erlang:
     description: 'version of erlang'
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
