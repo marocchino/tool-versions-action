@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - run: npm ci
-      - run: npm test
       - uses: ./
+        id: versions
         with:
           path: ".tool-versions"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.versions.outputs.nodejs }}
+      - run: npm ci
+      - run: npm test
