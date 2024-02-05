@@ -16,6 +16,10 @@ outputs:
     description: 'version of elixir'
   erlang:
     description: 'version of erlang'
+  terraform:
+    description: 'version of terraform'
+  terragrunt:
+    description: 'version of terragrunt'
 runs:
   using: 'node20'
   main: 'dist/index.js'
