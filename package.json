@@ -1,5 +1,5 @@
 {
-  "name": "tool-versions-action",
+  "name": "temp-hugo-tool-versions-action",
   "version": "1.0.0",
   "description": "JavaScript Action Template",
   "main": "index.js",
