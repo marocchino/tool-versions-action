@@ -1,6 +1,6 @@
 # @format
 
-name: 'Temp Hugo Tool Versions'
+name: 'Tool Versions'
 description: 'Output version numbers with .tool-versions file.'
 inputs:
   path:
