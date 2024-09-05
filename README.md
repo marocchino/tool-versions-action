@@ -33,10 +33,15 @@ jobs:
       - name: Read .tool-versions
         uses: marocchino/tool-versions-action@v1
         id: versions
-      - name: Use Node.js ${{ steps.versions.outputs.nodejs}}
+      - name: Use Node.js ${{ steps.versions.outputs.nodejs }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ steps.versions.outputs.nodejs}}
+          node-version: ${{ steps.versions.outputs.nodejs }}
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ fromJSON(steps.versions.outputs.hugo).version }}
+          extended: ${{ fromJSON(steps.versions.outputs.hugo).is_extended }}
 ```
 
 ## License
