@@ -1,5 +1,5 @@
-const core = require("@actions/core");
-const fetch = require("./fetch");
+import * as core from "@actions/core";
+import { fetch } from "./fetch";
 
 // most @actions toolkit packages have async methods
 async function run() {
