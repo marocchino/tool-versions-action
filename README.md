@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Read .tool-versions
-        uses: marocchino/tool-versions-action@v1
+        uses: marocchino/tool-versions-action@v2
         id: versions
       - name: Use Node.js ${{ steps.versions.outputs.nodejs }}
         uses: actions/setup-node@v3
