@@ -1,5 +1,6 @@
-const fs = require("fs");
-const fetch = function(path) {
+import fs from "fs";
+
+export const fetch = function(path) {
   return fs
     .readFileSync(path)
     .toString()
@@ -27,5 +28,3 @@ const fetch = function(path) {
       return acc;
     }, {});
 };
-
-module.exports = fetch;

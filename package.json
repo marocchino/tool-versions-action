@@ -1,34 +1,44 @@
 {
   "name": "tool-versions-action",
-  "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "version": "1.2.0",
+  "description": "GitHub Action to set up tools versions from .tool-versions file.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "lint": "eslint index.js fetch.js",
-    "package": "ncc build index.js -o dist",
-    "test": "jest"
+    "format": "biome format --write .",
+    "format-check": "biome format --write .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "package": "npx rimraf ./dist && npx rollup --config rollup.config.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 npx jest",
+    "all": "npm run format && npm run lint && npm run test && npm run package"
+  },
+  "engines": {
+    "node": ">=24"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/marocchino/tool-versions-action.git"
   },
   "keywords": [
     "GitHub",
     "Actions",
     "JavaScript"
   ],
-  "author": "GitHub",
+  "author": "marocchino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/marocchino/tool-versions-action/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/marocchino/tool-versions-action#readme",
   "dependencies": {
     "@actions/core": "^3.0.0"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.38.4",
-    "eslint": "^10.0.0",
-    "jest": "^30.3.0"
+    "@biomejs/biome": "2.4.7",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "jest": "^30.3.0",
+    "rollup": "^4.59.0"
   }
 }

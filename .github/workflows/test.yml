@@ -19,4 +19,4 @@ jobs:
         with:
           node-version: ${{ steps.versions.outputs.nodejs }}
       - run: npm ci
-      - run: npm test
+      - run: npm run all

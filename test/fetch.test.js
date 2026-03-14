@@ -1,4 +1,4 @@
-const fetch = require("../fetch");
+import { fetch } from "../src/fetch.js";
 
 test("load .tool-versions file to object", async () => {
   expect(fetch("./test/.tool-versions")).toStrictEqual({

@@ -23,5 +23,5 @@ outputs:
   hugo:
     description: "json object of hugo version e.g. { version: 'v0.100.0', is_extended: false }"
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'dist/index.js'
