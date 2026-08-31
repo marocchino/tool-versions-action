@@ -38,7 +38,7 @@
     "@biomejs/biome": "2.5.2",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
-    "jest": "^30.4.2",
+    "jest": "^30.5.0",
     "rollup": "^4.62.2"
   }
 }
